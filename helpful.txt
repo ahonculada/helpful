@@ -1,0 +1,163 @@
+
+----------------------------GITHUB TIPS-------------------------------
+run this command before "git push" to store credentials if using https.
+
+git config credential.helper store
+
+
+
+--------------------------ARCH LINUX TIPS----------------------------
+steps to install aur manually
+
+git clone https://aur.archlinux.org/<name of program>
+cd into directory of program
+makepkg -is
+
+
+-------------------------VIM TIPS-----------------------------------
+pasting text into vim
+1) :set paste
+2) insert mode
+3) shift + insert
+
+4) esc
+5) :set nopaste
+
+
+-----------------------REMAP KEYS---------------------------------
+Replace CAPSLOCK with CTRL 
+1) sudo vim /etc/default/keyboard
+2) inside file add line
+	XKBOPTIONS="ctrl:nocaps"
+3) sudo vim ~/.xprofile
+4) inside file add line
+	/usr/bin/setxkbmap -option "ctrl:nocaps"
+
+----------------------PROCESS TIPS---------------------------------
+Look at running processes:
+	jobs
+or	ps T
+
+Run process and continue to use terminal:
+	<command> &
+
+Move process to background
+	bg <job number>
+
+Bring process to foreground
+	fg <job number> 		where n is process id
+
+Kill a process
+	kill %<job number>
+
+------------------VIM BUFFER COMMANDS----------------------------
+Buffer			Use buffers to look at files
+
+List Buffers:
+	:ls
+or	:buffers
+or	:files
+
+Switch between buffers:
+Next buffer		:bn
+Prev buffer		:bp
+N buffer		:b<buffer number>
+Toggle files		<Ctrl-^>
+Jump prev position	<Ctrl-o>
+Jump recent position	<Ctrl-i>
+
+Delete buffers		:bd<buffer number>
+
+
+Windows			Use windows to view multiple buffers
+
+Open Windows:
+Create new file		:n <file name>
+Open file background	:e <file name>
+Clone below		<Ctrl-w>+s
+Open file below		:split <file name>
+Clone right		<Ctrl-w>+v
+Open file right		:vsplit <file name>
+
+Focus Windows:
+Move cursor		<Ctrl-w>+h/j/k/l
+Monocle Current		<Ctrl-w>+o
+
+Close Window:		<Ctrl-w>+c
+
+
+Tabs			Use Tabs for different projects!
+
+New Tab			:tabnew <file name>
+Close Tab		:tabclose
+Next Tab		gt	or	:tabnext
+Prev Tab		:tabprevious
+First Tab		:tabfirst
+Last Tab		:tablast
+
+
+---------------------------VM TIPS---------------------------------
+Convert vdi to qcow2			(virtual box to qemu)
+			qemu-img convert -f vdi -O qcow2 <vm back>.vdi <vm name>.qcow2
+
+
+-------------------------------GDB TIPS----------------------------
+Command 		Description
+r 			Start running program until breakpoint or end
+b <function name> 	Set a breakpoint at beginning of <function name>
+b <line number> 	Set a breakpoint at <line number> of source file
+b <file>.c:<line> 	Set a breakpoint at <line> in <file.c>
+d N 			Remove breakpoint number N
+info break 		List all breakpoints
+c 			Continue/ resume running program until next break or end
+f 			Run until current function is finished
+s 			Step one line
+s N 			Step N number of lines
+n 			Like s but does not step into functions
+p var 			print current value of var 
+set var=val 		Assign val to var 
+bt 			Prints the stack trace
+q 			Quit from gdb
+
+
+----------------HUION INSPIROY H640P DRIVER INSTALLATION------------
+Install Driver from source
+	sudo apt-get install git dkms
+	git clone https://github.com/DIGImend/digimend-kernel-drivers.git
+	cd digimend-kernel-driver
+	sudo make dkms_install
+
+Map Buttons
+	https://github.com/DIGImend/digimend-kernel-drivers/issues/360
+-------------------EXTRACTING tar.gz FILES-------------------------
+tar -xvf <file name> -C <directory>
+
+------------------COMPRESSING tar.gz FILES-------------------------
+tar -czvf <archive name>.tar.gz <directory>
+
+--------------------UNZIPPING .zip FILES-----------------------------
+unzip <file name> -d <directory>
+
+
+-------------------------DNS RESOLUTION --------------------------------
+Solution 1:
+	rm /etc/resolv.conf
+	nvim /etc/NetworkManager/conf.d/dns.conf
+		
+		[main]
+		dns=none
+		main.systemd-resolved=false
+
+	sudo systemctl restart NetworkManager
+
+
+Solution 2:
+	sudo systemctl restart systemd-resolved && sudo systemctl stop systemd-resolved
+
+
+------------------------HP Printer and Scanner-----------------------------
+printer
+	sudo apt install hplip-gui
+
+scanner 
+	sudo apt install simple-scan
