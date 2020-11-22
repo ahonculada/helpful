@@ -161,3 +161,25 @@ printer
 
 scanner 
 	sudo apt install simple-scan
+
+---------------------Keychron K2 Function Keys --------------------------------
+Switch between function and multimedia keys
+	Press fn + X + L (for 4 seconds)
+
+Connect Bluetooth
+	Switch toggle to Bluetooth
+	Press fn + 1 (for 4 sec) and pair with device named Keychron K2
+
+Change Light effect
+	Press light effect key or
+	Press fn + right arrow/ left arrow to change color
+
+Disable Auto Sleep Mode
+	Press fn + S + O for (4 seconds)
+
+Turn off the Backlight
+	fn + F5 or
+	fn + light effect key
+
+Factory Reset
+	fn + J + Z (4 seconds)
