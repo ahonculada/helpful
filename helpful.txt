@@ -183,3 +183,10 @@ Turn off the Backlight
 
 Factory Reset
 	fn + J + Z (4 seconds)
+
+------------------------Rotate and Reposition Displays-----------------------------
+Switch Displays
+	xrandr --output DP-0 --left-of HDMI-0
+
+Rotate one Display
+	xrandr --output HDMI-0 --rotate left	
