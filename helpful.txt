@@ -190,3 +190,10 @@ Switch Displays
 
 Rotate one Display
 	xrandr --output HDMI-0 --rotate left	
+
+
+-------------------------Change Default Terminal POP_OS---------------------------
+Change Default Terminal
+	sudo update-alternatives --config x-terminal-emulator
+
+
