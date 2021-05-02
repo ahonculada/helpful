@@ -196,4 +196,9 @@ Rotate one Display
 Change Default Terminal
 	sudo update-alternatives --config x-terminal-emulator
 
+---------------------Connect network with iwctl--------------------------------------
+iwctl device list
+iwctl device <device> scan
+iwctl station <device> get-networks
+iwctl station <device> connect <SSID>
 
