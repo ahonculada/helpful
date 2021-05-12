@@ -202,3 +202,9 @@ iwctl device <device> scan
 iwctl station <device> get-networks
 iwctl station <device> connect <SSID>
 
+-------------------------HUGO commands------------------------------------------------
+new page: 		hugo new /<path>/<page name>.md
+new site: 		hugo new site <site name>
+check local: 	hugo serve -D
+build site: 	hugo -D
+
