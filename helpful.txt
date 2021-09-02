@@ -208,3 +208,5 @@ new site: 		hugo new site <site name>
 check local: 	hugo serve -D
 build site: 	hugo -D
 
+-----------------------------Update Default Terminal -----------------------------------
+sudo update-alternatives --config x-terminal-emulator
