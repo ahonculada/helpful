@@ -210,3 +210,6 @@ build site: 	hugo -D
 
 -----------------------------Update Default Terminal -----------------------------------
 sudo update-alternatives --config x-terminal-emulator
+
+---------------------------Save Git Credentials----------------------------------------
+git config credential.helper store
