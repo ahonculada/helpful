@@ -50,6 +50,13 @@ Bring process to foreground
 Kill a process
 	kill %<job number>
 
+
+--------------------- TMUX --------------------------------------
+new session 						ctrl+a c
+switch next session 		ctrl+a n
+split pane vertical 		ctrl+a %
+split pane horizontal 	ctrl+a "
+
 ------------------VIM BUFFER COMMANDS----------------------------
 Buffer			Use buffers to look at files
 
@@ -217,18 +224,35 @@ docker images
 mkdir ${HOME}/docker/volumes/postgres
 
 docker run -d \
+				--rm
 				--name dev-postgres \
 				-e POSTGRES_PASSWORD=Pass2020! \
 				-v ${HOME}/docker/volumes/postgres/:/var/lib/postgresql \
-				-p 5432:5432
+				-p 5432:5432 \
 				postgres
 
 docker ps
 
 docker exec -it dev-postgres bash
 
-	psql -h loclhost -U postgres
+	psql -h localhost -U postgres
 	\l
+
+""""""use with pgadmin """"""""""
+docker pull dpage/pgadmin4
+docker run \
+				-p 8084:80 \
+				-e 'PGADMIN_DEFAULT_EMAIL=user@domain.local' \
+				-e 'PGADMIN_DEFAULT_PASSWORD=SuperSecret' \
+				--name dev-pgadmin \
+				-d dpage/pgadmin4
+
+docker inspect dev-postgres -f "{{json .NetworkSettings.Networks}}"
+
+http://localhost:8084
+when adding database, user is 		postgres
+
+
 
 ---------------------------Save Git Credentials----------------------------------------
 git config credential.helper store
