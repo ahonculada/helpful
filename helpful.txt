@@ -211,6 +211,25 @@ build site: 	hugo -D
 -----------------------------Update Default Terminal -----------------------------------
 sudo update-alternatives --config x-terminal-emulator
 
+-------------------------- PostgreSQL in Docker ----------------------------------------
+docker pull postgres
+docker images
+mkdir ${HOME}/docker/volumes/postgres
+
+docker run -d \
+				--name dev-postgres \
+				-e POSTGRES_PASSWORD=Pass2020! \
+				-v ${HOME}/docker/volumes/postgres/:/var/lib/postgresql \
+				-p 5432:5432
+				postgres
+
+docker ps
+
+docker exec -it dev-postgres bash
+
+	psql -h loclhost -U postgres
+	\l
+
 ---------------------------Save Git Credentials----------------------------------------
 git config credential.helper store
 
