@@ -5,6 +5,10 @@ run this command before "git push" to store credentials if using https.
 git config credential.helper store
 
 
+---------------------------ADD FONTS ---------------------------------
+1. Download Font  
+2. Unzip and copy to ~/.fonts  
+3. Run "fc-cache -fv" to update the font cache
 
 --------------------------ARCH LINUX TIPS----------------------------
 steps to install aur manually
@@ -262,6 +266,9 @@ http://localhost:8084
 when adding database, user is 		postgres
 
 
+---------------Error: Download performed unsandboxed as root-------------------
+sudo chown -Rv _apt:root /var/cache/apt/archives/partial/
+sudo chmod -Rv 700 /var/cache/apt/archives/partial/
 
 ---------------------------Save Git Credentials----------------------------------------
 git config credential.helper store
