@@ -5,6 +5,9 @@ run this command before "git push" to store credentials if using https.
 git config credential.helper store
 
 
+--------------------------- Log In To Github -------------------------
+gh auth login
+
 ---------------------------ADD FONTS ---------------------------------
 1. Download Font  
 2. Unzip and copy to ~/.fonts  
@@ -269,6 +272,11 @@ when adding database, user is 		postgres
 ---------------Error: Download performed unsandboxed as root-------------------
 sudo chown -Rv _apt:root /var/cache/apt/archives/partial/
 sudo chmod -Rv 700 /var/cache/apt/archives/partial/
+
+
+------------------------Second HDMI Monitor-------------------------------------
+xrandr --output eDP1 --primary --mode 1920x1080 --rotate normal --output HDMI1 --mode 1920x1080 --rotate normal --right-of eDP1
+
 
 ---------------------------Save Git Credentials----------------------------------------
 git config credential.helper store
